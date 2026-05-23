@@ -1,0 +1,161 @@
+name: SL Green Realty Vocabulary
+description: >-
+  Domain vocabulary covering SL Green Realty Corp. (NYSE: SLG) — Manhattan's
+  largest office landlord and a fully integrated commercial real estate
+  investment trust (REIT). SL Green publishes no public developer APIs, so
+  this vocabulary frames the REIT, its portfolio, operating divisions, and
+  marquee development programs rather than a programmable surface.
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/sl-green-realty/refs/heads/main/vocabulary/sl-green-realty-vocabulary.yml
+created: '2026-05-23'
+modified: '2026-05-23'
+
+corporate:
+  - term: SL Green Realty Corp.
+    abbreviation: SLG
+    definition: >-
+      Publicly traded (NYSE: SLG) fully integrated real estate investment
+      trust headquartered in New York City, focused on acquiring, managing
+      and maximizing the value of Manhattan commercial properties. Founded
+      in 1997 as the successor to S.L. Green Properties (established 1980).
+  - term: Real Estate Investment Trust
+    abbreviation: REIT
+    definition: >-
+      Corporate structure that owns and typically operates income-producing
+      real estate; distributes at least 90% of taxable income as dividends
+      to qualify for tax pass-through treatment under U.S. tax law.
+  - term: NYSE SLG
+    definition: New York Stock Exchange ticker for SL Green Realty Corp.
+  - term: CIK 0001040971
+    definition: SEC EDGAR central index key for SL Green Realty Corp.
+
+leadership:
+  - role: Chairman & Chief Executive Officer
+    name: Marc Holliday
+  - role: Founder
+    name: Stephen L. Green
+
+geography:
+  - term: Manhattan
+    definition: New York County, NY — sole geographic focus of SL Green's portfolio.
+  - submarket: Grand Central
+  - submarket: Midtown South / Chelsea
+  - submarket: Plaza District
+  - submarket: Downtown
+  - submarket: Westside
+  - submarket: Midtown West
+  - submarket: Times Square
+  - submarket: Park Avenue South / Flatiron
+  - submarket: Penn Station
+
+portfolio:
+  - term: One Vanderbilt
+    definition: >-
+      1,401-ft, 62-story trophy office tower at 1 Vanderbilt Avenue (42nd
+      St & Vanderbilt Ave) opened September 14, 2020 at a cost of US$3.31
+      billion. 1.75M sq ft, anchor tenant TD Bank; home to Summit One
+      Vanderbilt observation deck and Le Pavillon. Co-owned with the
+      National Pension Service of Korea, Hines, and Mori Building Company.
+  - term: One Madison Avenue
+    definition: >-
+      SL Green office redevelopment on Madison Square Park, recipient of
+      the 2026 ULI Award for Excellence in Office Development.
+  - term: Summit One Vanderbilt
+    definition: >-
+      Observation deck experience inside One Vanderbilt at 1,020 ft, opened
+      October 2021.
+  - term: Caesars Palace Times Square
+    definition: >-
+      Proposed casino-hotel-entertainment complex at 1515 Broadway in Times
+      Square — an SL Green-led joint venture with Caesars Entertainment and
+      Roc Nation. Pending issuance of one of three New York State downstate
+      commercial gaming licenses by the NY Gaming Facility Location Board.
+  - term: Trophy Asset
+    definition: >-
+      Industry term for top-tier, marquee commercial properties commanding
+      premium rents — One Vanderbilt and One Madison Avenue are SL Green's
+      trophy assets.
+
+divisions:
+  - division: Leasing
+  - division: Finance
+  - division: Investments
+  - division: Construction
+  - division: Development
+  - division: Hospitality
+  - division: Property Management
+  - division: Security & Life Safety
+  - division: Sustainability
+  - division: Technology
+
+tenants_partners:
+  - partner: Caesars Entertainment
+    role: Casino operating partner for Caesars Palace Times Square JV.
+  - partner: Roc Nation
+    role: Entertainment / cultural partner for Caesars Palace Times Square JV.
+  - partner: National Pension Service of Korea
+    role: Co-owner of One Vanderbilt.
+  - partner: Hines
+    role: Co-owner / co-developer of One Vanderbilt.
+  - partner: Mori Building Company
+    role: Co-owner of One Vanderbilt.
+  - partner: TD Bank
+    role: Anchor tenant of One Vanderbilt.
+  - partner: The Carlyle Group
+    role: One Vanderbilt tenant.
+  - partner: McDermott Will & Emery
+    role: One Vanderbilt tenant.
+  - partner: UiPath
+    role: One Vanderbilt tenant.
+
+tenant_technology:
+  - term: My Building
+    definition: >-
+      Tenant-facing services portal accessible from slgreen.com — no public
+      API or developer documentation exposed.
+  - term: RequestCom
+    definition: Third-party building services platform referenced by SL Green.
+  - term: ADP Workforce
+    definition: Third-party recruitment platform referenced by SL Green.
+
+regulators:
+  - body: New York State Gaming Commission
+    role: Casino gaming regulator for the Caesars Palace Times Square proposal.
+  - body: New York State Gaming Facility Location Board
+    role: Selects awardees of the three NY downstate commercial gaming licenses.
+  - body: U.S. Securities and Exchange Commission
+    role: Federal securities regulator (10-K, 10-Q, 8-K filings under CIK 0001040971).
+
+scale:
+  - metric: Properties (FY2024)
+    value: '39'
+  - metric: Portfolio Square Footage (FY2024)
+    value: 25,297,353 sq ft
+  - metric: 2024 Revenue
+    value: US$886 million
+  - metric: 2024 Net Income
+    value: US$30 million
+  - metric: 2024 Total Assets
+    value: US$10.470 billion
+  - metric: 2024 Total Equity
+    value: US$3.951 billion
+  - metric: Employees (2024)
+    value: '1,221'
+
+api_surface:
+  - finding: Developer portal
+    status: None
+  - finding: Public OpenAPI / AsyncAPI
+    status: None
+  - finding: Public REST / GraphQL APIs
+    status: None
+  - finding: SDKs / CLIs
+    status: None
+  - finding: GitHub public repositories
+    status: No SL Green GitHub organization found
+  - finding: Status page / changelog
+    status: None public
+  - finding: Tenant technology surface
+    status: Vendor-mediated ("My Building" portal, RequestCom, ADP Workforce)
+  - finding: API Evangelist tier
+    status: Tier 3 — no-apis (REIT, no programmable public surface)

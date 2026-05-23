@@ -1,0 +1,232 @@
+aid: sl-green-realty
+name: SL Green Realty Corp.
+description: >-
+  SL Green Realty Corp. (NYSE: SLG) is "Manhattan's largest office landlord, a
+  fully integrated real estate investment trust, or REIT, that is focused
+  primarily on acquiring, managing and maximizing the value of Manhattan
+  commercial properties." Founded in 1997 by Stephen L. Green (as successor to
+  S.L. Green Properties, established 1980) and headquartered in New York City,
+  SL Green is led by Chairman & CEO Marc Holliday. As of fiscal year-end 2024
+  the company reported 39 properties totaling approximately 25.3 million
+  square feet, US$886M in revenue, US$10.47B in total assets, and 1,221
+  employees. The portfolio includes flagship trophy assets One Vanderbilt
+  (1,401 ft, 1.75M sq ft, 62 stories, fully leased; home to Summit One
+  Vanderbilt observation deck) and One Madison Avenue (2026 ULI Award for
+  Excellence in Office Development), plus 420 Lexington Avenue, 1185 Avenue
+  of the Americas, 1350 Avenue of the Americas, 800 Third Avenue, 825 Eighth
+  Avenue, Worldwide Plaza, the Pershing Square Building, and 15 Laight
+  Street in Tribeca. The company is the New York joint-venture partner for
+  Caesars Palace Times Square, the proposed casino/entertainment complex at
+  1515 Broadway (and adjacent 1185 Avenue of the Americas redevelopment),
+  pending issuance of one of three New York State downstate gaming licenses.
+  Business divisions span leasing, finance, investments, construction,
+  development, hospitality, property management, security & life safety,
+  sustainability, and technology. SL Green publishes no public developer
+  APIs, no OpenAPI/AsyncAPI specs, no SDKs, no developer portal, no public
+  GitHub organization, and no public sandbox. Its tenant-facing technology
+  surface is delivered through third-party platforms — the "My Building"
+  tenant portal, RequestCom for building services, and ADP Workforce for
+  recruitment — none of which expose a programmable interface attributable
+  to SL Green. This profile documents the REIT, its portfolio, leadership,
+  and verified absence of a public API footprint.
+kind: company
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Casino Development
+  - Commercial Real Estate
+  - Manhattan
+  - New York City
+  - NYSE Listed
+  - Office Leasing
+  - Office Properties
+  - Property Management
+  - Real Estate
+  - REIT
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/sl-green-realty/refs/heads/main/apis.yml
+created: '2026-05-23'
+modified: '2026-05-23'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://slgreen.com
+  - type: AboutUs
+    url: https://slgreen.com/about/
+  - type: Properties
+    url: https://slgreen.com/properties/
+  - type: Leadership
+    url: https://slgreen.com/about/
+  - type: InvestorRelations
+    url: https://slgreen.com/investors/
+  - type: PressReleases
+    url: https://slgreen.com/news/
+  - type: Careers
+    url: https://slgreen.com/careers/
+  - type: Sustainability
+    url: https://slgreen.com/sustainability/
+  - type: TenantPortal
+    url: https://slgreen.com/my-building/
+    title: "My Building" tenant services portal
+  - type: SECFilings
+    url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001040971&type=10-K&dateb=&owner=include&count=40
+    title: SEC EDGAR 10-K filings (CIK 0001040971)
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/sl-green-realty-corp
+  - name: CorporateFacts
+    type: Features
+    description: SL Green corporate fact sheet (verified May 2026 via slgreen.com and public filings).
+    data:
+      - fact: Legal Name
+        value: SL Green Realty Corp.
+      - fact: Founded
+        value: '1997 (successor to S.L. Green Properties, est. 1980)'
+      - fact: Founder
+        value: Stephen L. Green
+      - fact: Headquarters
+        value: New York, NY, USA
+      - fact: Stock Exchange
+        value: NYSE
+      - fact: Ticker
+        value: SLG
+      - fact: CIK
+        value: '0001040971'
+      - fact: Chairman & CEO
+        value: Marc Holliday
+      - fact: Entity Type
+        value: Real Estate Investment Trust (REIT)
+      - fact: Property Count (FY 2024)
+        value: '39'
+      - fact: Portfolio Square Footage (FY 2024)
+        value: 25,297,353 sq ft
+      - fact: 2024 Revenue
+        value: US$886 million
+      - fact: 2024 Net Income
+        value: US$30 million
+      - fact: 2024 Total Assets
+        value: US$10.470 billion
+      - fact: 2024 Total Equity
+        value: US$3.951 billion
+      - fact: Employees (2024)
+        value: '1,221'
+      - fact: Market Description
+        value: "Manhattan's largest office landlord"
+  - name: FlagshipProperties
+    type: Features
+    description: >-
+      Selected SL Green Manhattan properties drawn from slgreen.com/properties
+      and Wikipedia (One Vanderbilt). Verbatim from slgreen.com homepage —
+      "SL Green Realty Corp. (NYSE: SLG), Manhattan's largest office
+      landlord."
+    data:
+      - property: One Vanderbilt
+        address: 1 Vanderbilt Avenue (42nd Street & Vanderbilt Ave), Manhattan
+        heightFt: 1401
+        sqFt: 1750000
+        stories: 62
+        completed: '2020-09-14'
+        cost: US$3.31 billion
+        coOwners: SL Green Realty, National Pension Service of Korea, Hines, Mori Building Company
+        anchorTenant: TD Bank
+        notableFeatures: Summit One Vanderbilt observation deck (1,020 ft); Le Pavillon (Daniel Boulud)
+        notableTenants: The Carlyle Group, McDermott Will & Emery, UiPath
+        status: Fully leased (late 2024)
+      - property: One Madison Avenue
+        location: Madison Square Park, Manhattan
+        recognition: 2026 ULI Award for Excellence in Office Development
+      - property: 1515 Broadway / 1185 Avenue of the Americas
+        location: Times Square, Manhattan
+        currentUse: Office tower (1185 6th Ave is part of redevelopment proposal)
+        proposedUse: Caesars Palace Times Square — casino, hotel, entertainment complex (pending NY State downstate gaming license)
+      - property: 420 Lexington Avenue (Graybar Building)
+        location: Midtown East / Grand Central, Manhattan
+      - property: 800 Third Avenue
+        location: Midtown East, Manhattan
+      - property: 825 Eighth Avenue (Worldwide Plaza)
+        location: Midtown West / Times Square, Manhattan
+      - property: 1350 Avenue of the Americas
+        location: Midtown, Manhattan
+      - property: 15 Laight Street
+        location: Tribeca, Manhattan
+      - property: Pershing Square Building
+        location: 125 Park Avenue / Grand Central, Manhattan
+      - property: 461 Fifth Avenue
+        location: Midtown, Manhattan
+      - property: 810 Seventh Avenue
+        location: Midtown West, Manhattan
+      - property: 919 Third Avenue
+        location: Midtown East, Manhattan
+      - property: Random House Tower
+        location: 1745 Broadway, Manhattan
+  - name: BusinessDivisions
+    type: Features
+    description: SL Green operating divisions as listed across slgreen.com.
+    data:
+      - division: Leasing
+      - division: Finance
+      - division: Investments
+      - division: Construction
+      - division: Development
+      - division: Hospitality
+      - division: Property Management
+      - division: Security & Life Safety
+      - division: Sustainability
+      - division: Technology
+  - name: SubmarketCoverage
+    type: Features
+    description: Manhattan submarkets in which SL Green operates properties (per slgreen.com/properties).
+    data:
+      - submarket: Grand Central
+      - submarket: Midtown South / Chelsea
+      - submarket: Plaza
+      - submarket: Downtown
+      - submarket: Westside
+      - submarket: Midtown West
+      - submarket: Times Square
+      - submarket: Park Avenue South / Flatiron
+      - submarket: Penn Station
+  - name: CaesarsPalaceTimesSquare
+    type: Features
+    description: >-
+      Proposed Caesars Palace Times Square casino/entertainment complex —
+      a SL Green-led joint venture with Caesars Entertainment and Roc
+      Nation (Jay-Z). Pending issuance of one of three NY State downstate
+      commercial gaming licenses. Site spans 1515 Broadway with adjacent
+      1185 Avenue of the Americas redevelopment.
+    data:
+      - role: Joint venture lead / property owner
+        partner: SL Green Realty Corp.
+      - role: Gaming operator
+        partner: Caesars Entertainment
+      - role: Entertainment / cultural partner
+        partner: Roc Nation
+      - role: Regulator
+        partner: New York State Gaming Commission / Gaming Facility Location Board
+      - status: Pending downstate gaming license award (as of May 2026)
+  - name: APISurfaceAssessment
+    type: Features
+    description: >-
+      API Evangelist assessment of SL Green's public API and developer
+      surface as of May 23, 2026.
+    data:
+      - finding: Public developer portal
+        status: None — no developer.slgreen.com or equivalent
+      - finding: Public OpenAPI / AsyncAPI specs
+        status: None published
+      - finding: Public REST or GraphQL APIs
+        status: None — tenant services delivered via third-party portals
+      - finding: SDKs / CLI
+        status: None published
+      - finding: GitHub organization
+        status: None — no github.com/slgreen org found
+      - finding: Status page / changelog
+        status: None public
+      - finding: Sandbox / Console
+        status: None
+      - finding: Tenant technology surface
+        status: Vendor-mediated — "My Building" portal, RequestCom, ADP Workforce
+      - finding: Tier rationale
+        status: Tier 3 — no-apis. REIT with no programmable public surface.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

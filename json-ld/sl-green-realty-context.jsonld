@@ -1,0 +1,131 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "slg": "https://slgreen.com/ns#",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "logo": "schema:logo",
+    "foundingDate": "schema:foundingDate",
+    "founder": "schema:founder",
+    "headquartersLocation": "schema:headquarters",
+    "tickerSymbol": "schema:tickerSymbol",
+    "stockExchange": "slg:stockExchange",
+    "numberOfEmployees": "schema:numberOfEmployees",
+    "ceo": "slg:ceo",
+    "subsidiary": "schema:subOrganization",
+    "partner": "slg:partner",
+    "property": "slg:property",
+    "submarket": "slg:submarket",
+    "division": "slg:division",
+    "initiative": "slg:initiative",
+    "announced": "slg:announced",
+    "scope": "slg:scope",
+    "areaServed": "schema:areaServed",
+    "revenue": "schema:revenue",
+    "fiscalYear": "slg:fiscalYear",
+    "Organization": "schema:Organization",
+    "Corporation": "schema:Corporation",
+    "Place": "schema:Place",
+    "Person": "schema:Person",
+    "REIT": "slg:REIT",
+    "CommercialBuilding": "slg:CommercialBuilding",
+    "TrophyAsset": "slg:TrophyAsset",
+    "JointVenture": "slg:JointVenture",
+    "GamingFacility": "slg:GamingFacility"
+  },
+  "@type": ["Corporation", "REIT"],
+  "@id": "https://slgreen.com/#org",
+  "name": "SL Green Realty Corp.",
+  "url": "https://slgreen.com",
+  "logo": "https://slgreen.com/wp-content/uploads/2020/01/SL-Green-Logo.svg",
+  "foundingDate": "1997",
+  "founder": {"@type": "Person", "name": "Stephen L. Green"},
+  "headquartersLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "New York",
+      "addressRegion": "NY",
+      "addressCountry": "US"
+    }
+  },
+  "tickerSymbol": "SLG",
+  "stockExchange": "NYSE",
+  "numberOfEmployees": 1221,
+  "ceo": {"@type": "Person", "name": "Marc Holliday"},
+  "areaServed": "Manhattan, New York, NY, USA",
+  "description": "Manhattan's largest office landlord — a fully integrated real estate investment trust focused primarily on acquiring, managing and maximizing the value of Manhattan commercial properties.",
+  "revenue": {
+    "@type": "MonetaryAmount",
+    "value": "886000000",
+    "currency": "USD",
+    "fiscalYear": "FY2024"
+  },
+  "division": [
+    "Leasing", "Finance", "Investments", "Construction", "Development",
+    "Hospitality", "Property Management", "Security & Life Safety",
+    "Sustainability", "Technology"
+  ],
+  "submarket": [
+    "Grand Central", "Midtown South / Chelsea", "Plaza District", "Downtown",
+    "Westside", "Midtown West", "Times Square",
+    "Park Avenue South / Flatiron", "Penn Station"
+  ],
+  "property": [
+    {
+      "@type": ["CommercialBuilding", "TrophyAsset"],
+      "name": "One Vanderbilt",
+      "address": "1 Vanderbilt Avenue, New York, NY",
+      "floors": 62,
+      "heightFt": 1401,
+      "areaSqFt": 1750000,
+      "yearOpened": "2020-09-14",
+      "constructionCostUSD": 3310000000,
+      "anchorTenant": "TD Bank",
+      "notableFeature": "Summit One Vanderbilt observation deck (1,020 ft)"
+    },
+    {
+      "@type": ["CommercialBuilding", "TrophyAsset"],
+      "name": "One Madison Avenue",
+      "address": "One Madison Avenue, New York, NY",
+      "recognition": "2026 ULI Award for Excellence in Office Development"
+    },
+    {
+      "@type": "CommercialBuilding",
+      "name": "1515 Broadway",
+      "address": "1515 Broadway, New York, NY",
+      "currentUse": "Office tower; site of proposed Caesars Palace Times Square casino"
+    },
+    {
+      "@type": "CommercialBuilding",
+      "name": "1185 Avenue of the Americas",
+      "address": "1185 Avenue of the Americas, New York, NY",
+      "currentUse": "Office tower; included in Caesars Palace Times Square redevelopment scope"
+    },
+    {"@type": "CommercialBuilding", "name": "420 Lexington Avenue (Graybar Building)", "address": "420 Lexington Avenue, New York, NY"},
+    {"@type": "CommercialBuilding", "name": "800 Third Avenue", "address": "800 Third Avenue, New York, NY"},
+    {"@type": "CommercialBuilding", "name": "825 Eighth Avenue (Worldwide Plaza)", "address": "825 Eighth Avenue, New York, NY"},
+    {"@type": "CommercialBuilding", "name": "1350 Avenue of the Americas", "address": "1350 Avenue of the Americas, New York, NY"},
+    {"@type": "CommercialBuilding", "name": "15 Laight Street", "address": "15 Laight Street, New York, NY"},
+    {"@type": "CommercialBuilding", "name": "Pershing Square Building", "address": "125 Park Avenue, New York, NY"},
+    {"@type": "CommercialBuilding", "name": "461 Fifth Avenue", "address": "461 Fifth Avenue, New York, NY"},
+    {"@type": "CommercialBuilding", "name": "810 Seventh Avenue", "address": "810 Seventh Avenue, New York, NY"},
+    {"@type": "CommercialBuilding", "name": "919 Third Avenue", "address": "919 Third Avenue, New York, NY"},
+    {"@type": "CommercialBuilding", "name": "Random House Tower", "address": "1745 Broadway, New York, NY"}
+  ],
+  "initiative": [
+    {
+      "@type": ["JointVenture", "GamingFacility"],
+      "name": "Caesars Palace Times Square",
+      "site": "1515 Broadway (with adjacent 1185 Avenue of the Americas redevelopment)",
+      "partner": [
+        "SL Green Realty Corp.",
+        "Caesars Entertainment",
+        "Roc Nation"
+      ],
+      "regulator": "New York State Gaming Facility Location Board",
+      "status": "Pending one of three NY State downstate commercial gaming licenses (as of May 2026)"
+    }
+  ]
+}
