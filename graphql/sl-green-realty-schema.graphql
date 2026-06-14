@@ -1,0 +1,630 @@
+"""
+SL Green Realty Corp. — Conceptual GraphQL Schema
+NYSE: SLG | Manhattan's largest office landlord
+CIK: 0001040971
+
+This is a conceptual data model. SL Green publishes no public GraphQL API.
+Schema derived from public portfolio data, SEC 10-K filings, and standard
+commercial REIT / CRE data modeling conventions.
+"""
+
+# ─────────────────────────────────────────────
+# Scalars
+# ─────────────────────────────────────────────
+
+scalar Date
+scalar DateTime
+scalar Decimal
+scalar URL
+
+# ─────────────────────────────────────────────
+# Enums
+# ─────────────────────────────────────────────
+
+"""Manhattan submarkets in which SL Green holds properties."""
+enum SubmarketName {
+  GRAND_CENTRAL
+  MIDTOWN_SOUTH_CHELSEA
+  PLAZA
+  DOWNTOWN
+  WESTSIDE
+  MIDTOWN_WEST
+  TIMES_SQUARE
+  PARK_AVENUE_SOUTH_FLATIRON
+  PENN_STATION
+  TRIBECA
+  OTHER
+}
+
+"""Property use classification."""
+enum PropertyUseType {
+  OFFICE
+  MIXED_USE
+  RETAIL
+  HOSPITALITY
+  DEVELOPMENT
+  CASINO_ENTERTAINMENT
+}
+
+"""Lease status lifecycle."""
+enum LeaseStatus {
+  ACTIVE
+  PENDING
+  EXPIRED
+  TERMINATED
+  RENEWAL_IN_PROGRESS
+}
+
+"""Transaction type for acquisitions, dispositions, and JV activity."""
+enum TransactionType {
+  ACQUISITION
+  DISPOSITION
+  JOINT_VENTURE_FORMATION
+  JOINT_VENTURE_BUYOUT
+  RECAPITALIZATION
+  FINANCING
+  DEVELOPMENT_START
+  DEVELOPMENT_COMPLETION
+}
+
+"""LEED or equivalent sustainability certification level."""
+enum CertificationLevel {
+  LEED_PLATINUM
+  LEED_GOLD
+  LEED_SILVER
+  LEED_CERTIFIED
+  ENERGY_STAR
+  BREEAM_OUTSTANDING
+  BREEAM_EXCELLENT
+  WELL_PLATINUM
+  WELL_GOLD
+  NONE
+}
+
+"""Amenity tier for Class A office buildings."""
+enum AmenityLevel {
+  TROPHY_CLASS_A_PLUS
+  CLASS_A
+  CLASS_B
+  REPOSITIONING
+}
+
+"""Reporting period type for financial summaries."""
+enum ReportingPeriod {
+  ANNUAL
+  QUARTERLY
+  MONTHLY
+  YTD
+}
+
+"""Contact role within the SL Green organization."""
+enum ContactRole {
+  LEASING_BROKER
+  PROPERTY_MANAGER
+  ASSET_MANAGER
+  INVESTOR_RELATIONS
+  SUSTAINABILITY_OFFICER
+  EXECUTIVE
+  CONSTRUCTION_MANAGER
+}
+
+"""Dividend declaration type."""
+enum DividendType {
+  REGULAR_QUARTERLY
+  SPECIAL
+  STOCK
+}
+
+"""IR event category."""
+enum IREventType {
+  EARNINGS_CALL
+  INVESTOR_DAY
+  CONFERENCE_PRESENTATION
+  ANNUAL_MEETING
+  SEC_FILING
+}
+
+# ─────────────────────────────────────────────
+# Geography & Market
+# ─────────────────────────────────────────────
+
+"""Top-level geographic market."""
+type Market {
+  id: ID!
+  name: String!
+  """ISO 3166-2 state code, e.g. US-NY"""
+  stateCode: String
+  country: String!
+  submarkets: [Submarket!]!
+  properties: [Property!]!
+  totalSqFt: Int
+  occupancyRate: Decimal
+}
+
+"""Manhattan submarket classification."""
+type Submarket {
+  id: ID!
+  name: SubmarketName!
+  displayName: String!
+  market: Market!
+  properties: [Property!]!
+  totalSqFt: Int
+  occupancyRate: Decimal
+  averageAskingRentPerSqFt: Decimal
+}
+
+# ─────────────────────────────────────────────
+# Portfolio
+# ─────────────────────────────────────────────
+
+"""Aggregated portfolio view for SL Green's full asset base."""
+type Portfolio {
+  id: ID!
+  asOfDate: Date!
+  totalProperties: Int!
+  totalSqFt: Int!
+  occupiedSqFt: Int
+  occupancyRate: Decimal
+  weightedAverageLeaseTermYears: Decimal
+  totalAnnualizedRent: Decimal
+  properties: [Property!]!
+  financialSummaries: [FinancialSummary!]!
+  noi: NOI
+  markets: [Market!]!
+}
+
+# ─────────────────────────────────────────────
+# Property & Building Hierarchy
+# ─────────────────────────────────────────────
+
+"""A discrete real estate asset in the SL Green portfolio."""
+type Property {
+  id: ID!
+  name: String!
+  address: String!
+  borough: String
+  zipCode: String
+  submarket: Submarket!
+  market: Market!
+  useType: PropertyUseType!
+  amenityLevel: AmenityLevel!
+  ownershipInterestPct: Decimal
+  yearBuilt: Int
+  yearRenovated: Int
+  totalSqFt: Int!
+  leasableSqFt: Int
+  occupancyRate: Decimal
+  buildings: [Building!]!
+  leases: [Lease!]!
+  tenants: [Tenant!]!
+  certifications: [Certification!]!
+  greenInitiatives: [GreenInitiative!]!
+  transactions: [Transaction!]!
+  contacts: [Contact!]!
+  financialSummaries: [FinancialSummary!]!
+  noi: NOI
+  capRate: CapRate
+  occupancyHistory: [Occupancy!]!
+  isTrophy: Boolean!
+  isFullyLeased: Boolean
+  description: String
+  imageUrl: URL
+  website: URL
+}
+
+"""Physical building structure within or comprising a property."""
+type Building {
+  id: ID!
+  property: Property!
+  name: String
+  address: String!
+  heightFt: Int
+  stories: Int!
+  totalSqFt: Int!
+  leasableSqFt: Int
+  occupancyRate: Decimal
+  yearBuilt: Int
+  yearRenovated: Int
+  amenityLevel: AmenityLevel!
+  certifications: [Certification!]!
+  floors: [Floor!]!
+  contacts: [Contact!]!
+  lobbyDescription: String
+}
+
+"""Individual floor within a building."""
+type Floor {
+  id: ID!
+  building: Building!
+  floorNumber: Int!
+  totalSqFt: Int!
+  leasableSqFt: Int
+  availableSqFt: Int
+  suites: [Suite!]!
+  isFullFloor: Boolean!
+  occupancyRate: Decimal
+  askingRentPerSqFt: Decimal
+  floorPlanUrl: URL
+}
+
+"""Leasable unit on a floor."""
+type Suite {
+  id: ID!
+  floor: Floor!
+  suiteNumber: String!
+  sqFt: Int!
+  isAvailable: Boolean!
+  askingRentPerSqFt: Decimal
+  leases: [Lease!]!
+  condition: String
+  availableDate: Date
+}
+
+# ─────────────────────────────────────────────
+# Leasing & Tenants
+# ─────────────────────────────="────────────────
+# ─────────────────────────────────────────────
+
+"""Commercial tenant occupying one or more suites."""
+type Tenant {
+  id: ID!
+  name: String!
+  industry: String
+  website: URL
+  creditRating: String
+  leases: [Lease!]!
+  properties: [Property!]!
+  totalLeasedSqFt: Int
+  isAnchorTenant: Boolean!
+  headquartersAddress: String
+  stockTicker: String
+  notes: String
+}
+
+"""Legal lease agreement between SL Green and a tenant."""
+type Lease {
+  id: ID!
+  tenant: Tenant!
+  suite: Suite!
+  property: Property!
+  status: LeaseStatus!
+  commencementDate: Date!
+  expirationDate: Date!
+  termYears: Decimal
+  leasedSqFt: Int!
+  baseRentPerSqFt: Decimal
+  annualBaseRent: Decimal
+  escalationPct: Decimal
+  leaseType: String
+  renewalOptions: Int
+  renewalTermYears: Decimal
+  tenantImprovementAllowance: Decimal
+  freeRentMonths: Int
+  contacts: [Contact!]!
+  executionDate: Date
+  notes: String
+}
+
+# ─────────────────────────────────────────────
+# Occupancy
+# ─────────────────────────────────────────────
+
+"""Point-in-time occupancy metric for a building, property, or portfolio."""
+type Occupancy {
+  id: ID!
+  asOfDate: Date!
+  property: Property
+  building: Building
+  totalSqFt: Int!
+  occupiedSqFt: Int!
+  availableSqFt: Int!
+  occupancyRate: Decimal!
+  weightedAverageRentPerSqFt: Decimal
+  leaseCount: Int
+}
+
+# ─────────────────────────────────────────────
+# Transactions
+# ─────────────────────────────────────────────
+
+"""Acquisition, disposition, financing, or JV transaction."""
+type Transaction {
+  id: ID!
+  property: Property!
+  transactionType: TransactionType!
+  announcementDate: Date
+  closingDate: Date
+  totalConsideration: Decimal
+  pricePerSqFt: Decimal
+  capRateAtTransaction: Decimal
+  buyerName: String
+  sellerName: String
+  jointVenturePartners: [String!]
+  slgOwnershipPctPost: Decimal
+  financingDetails: String
+  notes: String
+}
+
+# ─────────────────────────────────────────────
+# Contacts
+# ─────────────────────────────────────────────
+
+"""Named contact associated with a property, lease, or IR function."""
+type Contact {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  title: String
+  role: ContactRole!
+  email: String
+  phone: String
+  properties: [Property!]!
+  linkedInUrl: URL
+}
+
+# ─────────────────────────────────────────────
+# Amenities & Certifications
+# ─────────────────────────────────────────────
+
+"""Sustainability or energy certification held by a property or building."""
+type Certification {
+  id: ID!
+  certificationLevel: CertificationLevel!
+  issuingBody: String!
+  certifiedDate: Date
+  expirationDate: Date
+  score: Decimal
+  notes: String
+}
+
+"""ESG or sustainability program element."""
+type GreenInitiative {
+  id: ID!
+  property: Property
+  title: String!
+  description: String!
+  category: String
+  targetYear: Int
+  measurementUnit: String
+  baselineValue: Decimal
+  targetValue: Decimal
+  currentValue: Decimal
+  percentComplete: Decimal
+  reportUrl: URL
+}
+
+# ─────────────────────────────────────────────
+# Financial Data
+# ─────────────────────────────────────────────
+
+"""Net Operating Income figure for a property or the portfolio."""
+type NOI {
+  id: ID!
+  property: Property
+  period: ReportingPeriod!
+  periodStartDate: Date!
+  periodEndDate: Date!
+  totalRevenue: Decimal!
+  operatingExpenses: Decimal!
+  noi: Decimal!
+  cashNOI: Decimal
+  sameStorNOIGrowthPct: Decimal
+  notes: String
+}
+
+"""Capitalization rate for a property or at time of transaction."""
+type CapRate {
+  id: ID!
+  property: Property!
+  asOfDate: Date!
+  capRate: Decimal!
+  noi: Decimal!
+  impliedValue: Decimal
+  methodology: String
+  notes: String
+}
+
+"""Period financial roll-up for the portfolio or a specific property."""
+type FinancialSummary {
+  id: ID!
+  property: Property
+  portfolio: Portfolio
+  period: ReportingPeriod!
+  periodStartDate: Date!
+  periodEndDate: Date!
+  totalRevenue: Decimal!
+  rentalRevenue: Decimal
+  otherRevenue: Decimal
+  operatingExpenses: Decimal!
+  noi: Decimal!
+  ebitda: Decimal
+  ffo: Decimal
+  affo: Decimal
+  netIncome: Decimal
+  totalAssets: Decimal
+  totalDebt: Decimal
+  totalEquity: Decimal
+  sharesOutstanding: Int
+  ffoPerShare: Decimal
+  affoPerShare: Decimal
+  dividendPayoutRatio: Decimal
+  debtToEbitdaRatio: Decimal
+  interestCoverageRatio: Decimal
+  reportedDate: Date
+  secFilingUrl: URL
+}
+
+"""Quarterly or special dividend declaration."""
+type Dividend {
+  id: ID!
+  dividendType: DividendType!
+  declaredDate: Date!
+  exDividendDate: Date!
+  recordDate: Date!
+  paymentDate: Date!
+  amountPerShare: Decimal!
+  annualizedYield: Decimal
+  stockTicker: String!
+  notes: String
+}
+
+# ─────────────────────────────────────────────
+# Investor Relations
+# ─────────────────────────────────────────────
+
+"""Investor relations event, filing, or communication."""
+type InvestorRelations {
+  id: ID!
+  eventType: IREventType!
+  title: String!
+  description: String
+  eventDate: DateTime
+  publicationDate: Date
+  fiscalYear: Int
+  fiscalQuarter: Int
+  documentUrl: URL
+  webcastUrl: URL
+  pressReleaseUrl: URL
+  financialSummary: FinancialSummary
+  dividends: [Dividend!]!
+  highlights: [String!]!
+}
+
+# ─────────────────────────────────────────────
+# Root Query Type
+# ─────────────────────────────────────────────
+
+type Query {
+  """Retrieve the full SL Green portfolio snapshot."""
+  portfolio(asOfDate: Date): Portfolio
+
+  """List all properties in the SL Green portfolio."""
+  properties(
+    submarket: SubmarketName
+    useType: PropertyUseType
+    isTrophy: Boolean
+    minOccupancyRate: Decimal
+    maxOccupancyRate: Decimal
+    limit: Int
+    offset: Int
+  ): [Property!]!
+
+  """Get a single property by ID."""
+  property(id: ID!): Property
+
+  """Get a single property by name."""
+  propertyByName(name: String!): Property
+
+  """List all buildings, optionally filtered by property."""
+  buildings(propertyId: ID): [Building!]!
+
+  """Get a single building by ID."""
+  building(id: ID!): Building
+
+  """List floors within a building."""
+  floors(buildingId: ID!, available: Boolean): [Floor!]!
+
+  """List suites, optionally filtering for available space."""
+  suites(
+    floorId: ID
+    buildingId: ID
+    propertyId: ID
+    isAvailable: Boolean
+    minSqFt: Int
+    maxSqFt: Int
+  ): [Suite!]!
+
+  """List all active leases, optionally scoped to a property."""
+  leases(
+    propertyId: ID
+    tenantId: ID
+    status: LeaseStatus
+    expiringBefore: Date
+    expiringAfter: Date
+  ): [Lease!]!
+
+  """Get a single lease by ID."""
+  lease(id: ID!): Lease
+
+  """List all tenants."""
+  tenants(
+    propertyId: ID
+    isAnchorTenant: Boolean
+    industry: String
+  ): [Tenant!]!
+
+  """Get a single tenant by ID."""
+  tenant(id: ID!): Tenant
+
+  """Occupancy history for a property or building."""
+  occupancyHistory(
+    propertyId: ID
+    buildingId: ID
+    fromDate: Date
+    toDate: Date
+  ): [Occupancy!]!
+
+  """List transactions, optionally scoped to a property or type."""
+  transactions(
+    propertyId: ID
+    transactionType: TransactionType
+    fromDate: Date
+    toDate: Date
+  ): [Transaction!]!
+
+  """List contacts by role or property."""
+  contacts(propertyId: ID, role: ContactRole): [Contact!]!
+
+  """NOI data for a property or the full portfolio."""
+  noi(
+    propertyId: ID
+    period: ReportingPeriod
+    fromDate: Date
+    toDate: Date
+  ): [NOI!]!
+
+  """Cap rate data for properties."""
+  capRates(propertyId: ID, asOfDate: Date): [CapRate!]!
+
+  """Financial summaries for the portfolio or a property."""
+  financialSummaries(
+    propertyId: ID
+    period: ReportingPeriod
+    fiscalYear: Int
+    fiscalQuarter: Int
+  ): [FinancialSummary!]!
+
+  """Dividend declarations."""
+  dividends(
+    fromDate: Date
+    toDate: Date
+    dividendType: DividendType
+  ): [Dividend!]!
+
+  """Investor relations events and filings."""
+  investorRelations(
+    eventType: IREventType
+    fiscalYear: Int
+    fiscalQuarter: Int
+    limit: Int
+  ): [InvestorRelations!]!
+
+  """Manhattan markets and submarkets."""
+  markets: [Market!]!
+
+  """Single market by ID."""
+  market(id: ID!): Market
+
+  """Submarkets, optionally filtered by market."""
+  submarkets(marketId: ID): [Submarket!]!
+
+  """Green initiatives, optionally scoped to a property."""
+  greenInitiatives(propertyId: ID, category: String): [GreenInitiative!]!
+
+  """Sustainability certifications for a property or building."""
+  certifications(
+    propertyId: ID
+    buildingId: ID
+    level: CertificationLevel
+  ): [Certification!]!
+}
