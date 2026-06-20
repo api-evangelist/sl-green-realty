@@ -25,7 +25,7 @@ description: 'SL Green Realty Corp. (NYSE: SLG) is "Manhattan''s largest office 
   expose a programmable interface attributable to SL Green. This profile documents
   the REIT, its portfolio, leadership, and verified absence of a public API footprint.'
 kind: company
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Casino Development
 - Commercial Real Estate
