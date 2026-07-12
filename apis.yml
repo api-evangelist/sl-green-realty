@@ -54,6 +54,8 @@ apis:
   - url: graphql/sl-green-realty-schema.graphql
     type: GraphQLSchema
 common:
+- type: DomainSecurity
+  url: security/sl-green-realty-domain-security.yml
 - type: Website
   url: https://slgreen.com
 - type: AboutUs
