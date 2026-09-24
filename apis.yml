@@ -1,5 +1,5 @@
 aid: sl-green-realty
-name: SL Green Realty Corp.
+name: SL Green
 description: 'SL Green Realty Corp. (NYSE: SLG) is "Manhattan''s largest office landlord,
   a fully integrated real estate investment trust, or REIT, that is focused primarily
   on acquiring, managing and maximizing the value of Manhattan commercial properties."
@@ -57,7 +57,7 @@ tags:
 - Office Leasing
 - Office Properties
 - Property Management
-- Real-Estate
+- Real Estate
 - REIT
 tags_raw:
 - Casino Development
@@ -70,6 +70,7 @@ tags_raw:
 - Property Management
 - Real Estate
 - REIT
+- Real-Estate
 url: https://raw.githubusercontent.com/api-evangelist/sl-green-realty/refs/heads/main/apis.yml
 created: '2026-05-23'
 modified: '2026-05-23'
@@ -82,10 +83,6 @@ apis:
     NOI, CapRate, Portfolio, Market, and Submarket. SL Green publishes no public API;
     this data model is derived from public portfolio and SEC filing data.
   properties:
-  - url: graphql/sl-green-realty-graphql.md
-    type: GraphQL
-  - url: graphql/sl-green-realty-schema.graphql
-    type: GraphQLSchema
 common:
 - type: DomainSecurity
   url: security/sl-green-realty-domain-security.yml
@@ -269,3 +266,4 @@ common:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-legal-name: SL Green Realty Corp.
